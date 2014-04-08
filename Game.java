@@ -12,11 +12,11 @@ public class Game extends Parent {
     //*** instance fields
 
     private String      label, description;
-    private ItemAction      []   itemActionList      = new ItemAction[ACTION_COUNT_MAX];
-    private MoveAction      []   moveActionList      = new MoveAction[ACTION_COUNT_MAX];
-    private Place           []   placeList       = new Place [PLACE_COUNT_MAX];
-    public static Item      []   itemList        = new Item  [ITEM_COUNT_MAX];
-    private Item            []   gameItem;
+    private ArrayList   <ItemAction>         itemActionList     = new ArrayList<ItemAction>();
+    private ArrayList   <MoveAction>         moveActionList     = new ArrayList<MoveAction>();
+    private ArrayList   <Place>              placeList          = new ArrayList<Place>();
+    public  ArrayList   <Item>               itemList           = new ArrayList<Item>();
+    private ArrayList   <Item>               gameItem;
     private 
     int         itemActionCount     = 0;
     int         moveActionCount     = 0;
@@ -44,14 +44,11 @@ public class Game extends Parent {
         try {
             if (null == newItem)  
                 throw new IllegalArgumentException();
-            // FUTURE: auto-expand itemList when full; prevent duplicate
-            if (this.itemList.length == numItems)  
-                throw new IllegalArgumentException(); 
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        this.itemList[numItems++] = newItem; 
+        this.itemList.add(newItem);
     }  
 
     /**
@@ -64,17 +61,13 @@ public class Game extends Parent {
             if (null == newAction) {
                 throw new IllegalArgumentException("Can't add null action");
             }
-            // FUTURE: auto-expand actionList when full, prevent duplicates
-            if (this.moveActionList.length == moveActionCount){
-                throw new IllegalArgumentException();
-            }
         }
 
         catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
-        this.moveActionList[moveActionCount++] = newAction;
+        this.moveActionList.add(newAction);
     }
 
     // FUTURE: public Action makeAction(label, desc, prevPlace, nextPlace) { }
@@ -90,8 +83,8 @@ public class Game extends Parent {
         if (null != label || null != place) { 
             label = label.trim();
             String actionLabel;
-            for (int i=0; i<moveActionCount; i++) {
-                action = this.moveActionList[i];
+            for (int i=0; i<moveActionList.size(); i++) {
+                action = this.moveActionList.get(i);
                 actionLabel = action.getLabel();
                 if ( label.equals(actionLabel)) {
                     if( place.equals(action.getLast ()) ) {
@@ -129,14 +122,11 @@ public class Game extends Parent {
         try { 
             if (null == newPlace) 
                 throw new IllegalArgumentException();
-            // FUTURE: auto-expand placeList when full; prevent duplicate
-            if (this.placeList.length == placeCount) 
-                throw new IllegalArgumentException(); }
-
+        }
         catch (Exception e) {
             System.out.println(e.getMessage());
         }  
-        this.placeList[placeCount++] = newPlace;
+        this.placeList.add(newPlace);
     }
 
     // FUTURE: public Action makePlace(label, desc) { }
@@ -154,7 +144,7 @@ public class Game extends Parent {
         catch (IllegalArgumentException e){
             System.out.println(e.getMessage());
         }
-        return this.placeList[i];
+        return this.placeList.get(i);
     }
 
     /**
@@ -168,8 +158,8 @@ public class Game extends Parent {
         }
         label = label.trim();
         for (int i=0; i<placeCount; i++) {
-            if (label.equals(this.placeList[i].getLabel())) {
-                return this.placeList[i];
+            if (label.equals(this.placeList.get(i).getLabel())) {
+                return this.placeList.get(i);
             }
         }
         return null;
@@ -187,25 +177,23 @@ public class Game extends Parent {
         if (null == label) { return null; }
         label = label.trim();
         for (int i=0; i<itemCount; i++) {
-            if (label.equals(this.gameItem[i].getLabel())) {
-                return this.gameItem[i];
+            if (label.equals(this.gameItem.get(i).getLabel())) {
+                return this.gameItem.get(i);
             }
         }
         return null;
     }
-    
+
     public void addItemAction(ItemAction newAction){
         try{
             if (null == newAction) 
                 throw new IllegalArgumentException ();
-            if (this.itemActionList.length == itemActionCount)
-                throw new IllegalArgumentException();
         }
 
         catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
-        this.itemActionList[itemActionCount++] = newAction;
+        this.itemActionList.add(newAction);
     }
 
     public Place actionPicker(String label, Place place, Player player){
@@ -213,8 +201,9 @@ public class Game extends Parent {
         if(action != null){
             System.out.println(action.getDescription());
             place = action.getNext();}
-        if (action.equals(null)){
-            place = ItemAction.getItemAction(label, place, player, numItems);}
+        
+         //if (action.equals(null)){
+         //   place = ItemAction.getItemAction(label, place, player, numItems);}
         return place;
     }
 
@@ -241,13 +230,13 @@ public class Game extends Parent {
 
             // Pick up item
             text    = scanner.nextLine();
-            
+
             if  (text.startsWith("Pick Up ")){
                 String itemLabel = text.substring(8);
 
                 int j;
                 for (j = 0; j < numItems; j ++) {
-                    if (itemLabel.equals(itemList[j].getLabel())) {
+                    if (itemLabel.equals(itemList.get(j).getLabel())) {
                         Item item = place.itemList[j];
                         player0.addItem(item);
                         place.removeItem(item);
@@ -261,8 +250,8 @@ public class Game extends Parent {
 
                 int k;
                 for (k = 0; k < numItems; k ++) {
-                    if (itemLabel.equals(itemList[k].getLabel())) {
-                        Item item = itemList[k];
+                    if (itemLabel.equals(itemList.get(k).getLabel())) {
+                        Item item = itemList.get(k);
                         place.addItem(item);
                         player0.removeItem(item);
                     }
@@ -304,7 +293,7 @@ public class Game extends Parent {
                 "You are in a hallway leading east and west, and there are stairs up.");
         /**
          * Place   rm48    = new Place("rm48",
-                "You are in a room full of computers and tables. There is a door to the south.");
+        "You are in a room full of computers and tables. There is a door to the south.");
          */
 
         game.addPlace(outside);
@@ -320,7 +309,6 @@ public class Game extends Parent {
         game.addMoveAction(new MoveAction("up",     "You ascend the stairs.",   hall0,      foyer   ));
         //game.addMoveAction(new MoveAction("east",   "You walk down the hall.",  hall0,      rm48    ));
         //game.addMoveAction(new MoveAction("south",  "You leave the room.",      rm48,       hall0   ));
-
 
         //Add Items and Descriptions
         Item   pencil = new Item("pencil", "a pencil");

@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Place in the text game
  * 
@@ -11,8 +13,7 @@ public class Place extends Parent {
 
     //Item Instance Fields//
     private String label, description;
-    public static final int ITEM_COUNT_MAX = 10;
-    public Item [] itemList = new Item [ITEM_COUNT_MAX];
+    public ArrayList <Item>     itemList = new ArrayList<Item>();
     int numItems = 0;
 
     //Other Instance Fields//
@@ -35,7 +36,7 @@ public class Place extends Parent {
      * 
      */
     public void addItem(Item item) {
-        itemList[numItems] = item;
+        itemList.add(item);
         numItems = numItems + 1;
     } 
 
@@ -43,7 +44,7 @@ public class Place extends Parent {
         int i;
         String itemLabel;
         for (i = 0; i < numItems; i++) {
-            itemLabel = itemList[i].getLabel();
+            itemLabel = itemList.get(i).getLabel();
             if (item.getLabel().equals(itemLabel)) {
                 itemList[i] = null;
                 int p;

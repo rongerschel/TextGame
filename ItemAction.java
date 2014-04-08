@@ -36,45 +36,45 @@ public class ItemAction extends Action
         else{return false;}
     }
     
-    public static Place getItemAction(String label, Place place, Player player0, int numItems){
-        if (label.startsWith("pick ")){
-            pickupItem(label, player0, place, numItems);}
-        if (label.startsWith("put ")){
-            putdownItem(label, player0, place, numItems);}
-        return place;
-    }
+//     public static Place getItemAction(String label, Place place, Player player0, int numItems){
+//         if (label.startsWith("pick ")){
+//             pickupItem(label, player0, place, numItems);}
+//         if (label.startsWith("put ")){
+//             putdownItem(label, player0, place, numItems);}
+//         return place;
+//     }
     
-    public static void pickupItem(String text, Player player0, Place place, int numItems){
-        String itemLabel = text.substring(5);
-        int j;
-        for(j=0; j<numItems; j++){
-            pickup(itemLabel, player0, place, j);
-        }
-    }
+//     public static void pickupItem(String text, Player player0, Place place, int numItems){
+//         String itemLabel = text.substring(5);
+//         int j;
+//         for(j=0; j<numItems; j++){
+//             pickup(itemLabel, player0, place, j);
+//         }
+//     }
 
-    public static void pickup(String itemLabel, Player player0, Place place, int j){
-        if (itemLabel.equals(Game.itemList[j].getLabel())){
-            Item item = Game.itemList[j];
-            player0.addItem(item);
-            place.removeItem(item);
-        }
-    }
+//     public static void pickup(String itemLabel, Player player0, Place place, int j){
+//         if (itemLabel.equals(itemList[j].getLabel())){
+//             Item item = Game.itemList[j];
+//             player0.addItem(item);
+//             place.removeItem(item);
+//         }
+//     }
 
-    public static void putdownItem(String text, Player player0, Place place, int numItems){
-        String itemLabel = text.substring(5);
-        int k;
-        for(k=0; k<numItems; k++){
-            putdown(itemLabel, player0, place, k);
-        }
-    }
+//     public static void putdownItem(String text, Player player0, Place place, int numItems){
+//         String itemLabel = text.substring(5);
+//         int k;
+//         for(k=0; k<numItems; k++){
+//             putdown(itemLabel, player0, place, k);
+//         }
+//     }
 
-    public static void putdown(String itemLabel, Player player0, Place place, int k){
-        if (itemLabel.equals(Game.itemList[k].getLabel())){
-            Item item = Game.itemList[k];
-            place.addItem(item);
-            player0.removeItem(item);
-        }
-    }
+//     public static void putdown(String itemLabel, Player player0, Place place, int k){
+//         if (itemLabel.equals(Game.itemList[k].getLabel())){
+//             Item item = Game.itemList[k];
+//             place.addItem(item);
+//             player0.removeItem(item);
+//         }
+//     }
     
     //ItemAction takeCoffee = new ItemAction ("take coffee", "takes coffee", ["coffee"], [], [], ["coffee"]);
 }
