@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=label\ description
+comment0.target=Place(java.lang.String,\ java.lang.String)
+comment0.text=\n\ Creates\ new\ Place\ with\ given\ label\ &\ description\n\ @param\ label\n\ @param\ description\n
+comment1.params=item
+comment1.target=void\ addItem(Item)
+comment1.text=\n\ \n
+comment2.params=item
+comment2.target=void\ removeItem(Item)
+numComments=3

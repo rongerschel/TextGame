@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=label\ description\ lastPlace\ nextPlace
+comment0.target=MoveAction(java.lang.String,\ java.lang.String,\ Place,\ Place)
+comment1.params=
+comment1.target=Place\ getNext()
+comment1.text=\n\ Gets\ next\ place\ and\ returns\ nextPlace\n
+comment2.params=newNext
+comment2.target=void\ setNext(Place)
+comment2.text=\n\ Sets\ next\ possible\ place\n
+comment3.params=
+comment3.target=Place\ getLast()
+comment3.text=\n\ Gets\ prevPlace\ string\ and\ \n\ returns\ prevPlace.\n
+comment4.params=newPrev
+comment4.target=void\ setLast(Place)
+comment4.text=\n\ Takes\ newPrev\ and\ prevPlace\ becomes\ newPrev\n
+comment5.params=item
+comment5.target=void\ addReqItem(Item)
+comment6.params=item
+comment6.target=void\ addForItem(Item)
+numComments=7

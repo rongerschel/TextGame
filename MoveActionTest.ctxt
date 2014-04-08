@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=
+comment0.target=void\ setUp()
+comment0.text=\n\ Sets\ up\ the\ test\ fixture\ before\ each\ test\ method.\n
+comment1.params=
+comment1.target=void\ tearDown()
+comment1.text=\n\ Tears\ down\ the\ test\ fixture\ after\ each\ test\ method.\n
+comment2.params=
+comment2.target=void\ setNextNull()
+comment3.params=
+comment3.target=void\ setNext()
+comment4.params=
+comment4.target=void\ setPrevNull()
+comment5.params=
+comment5.target=void\ setPrev()
+numComments=6

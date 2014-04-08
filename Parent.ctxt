@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=label\ description
+comment0.target=Parent(java.lang.String,\ java.lang.String)
+comment1.params=
+comment1.target=java.lang.String\ getDescription()
+comment2.params=newDescription
+comment2.target=void\ setDescription(java.lang.String)
+comment3.params=
+comment3.target=java.lang.String\ getLabel()
+comment4.params=newLabel
+comment4.target=void\ setLabel(java.lang.String)
+comment5.params=list\ count\ item
+comment5.target=int\ addItem(Item[],\ int,\ Item)
+numComments=6

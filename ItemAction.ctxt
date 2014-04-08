@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.params=label\ description\ playerBefore\ playerAfter\ placeBefore\ placeAfter
+comment0.target=ItemAction(java.lang.String,\ java.lang.String,\ Item[],\ Item[],\ Item[],\ Item[])
+comment0.text=\n\ Constructor\ for\ objects\ of\ class\ ItemAction\n
+comment1.params=before\ has
+comment1.target=boolean\ Arrays(Item[],\ Item[])
+comment1.text=\ \n\ checks\ that\ item\ is\ in\ place\ or\ before,\ removes\ it\ from\ before,\ adds\ it\ to\ after\n
+comment2.params=label\ place\ player0\ numItems
+comment2.target=Place\ getItemAction(java.lang.String,\ Place,\ Player,\ int)
+comment3.params=text\ player0\ place\ numItems
+comment3.target=void\ pickupItem(java.lang.String,\ Player,\ Place,\ int)
+comment4.params=itemLabel\ player0\ place\ j
+comment4.target=void\ pickup(java.lang.String,\ Player,\ Place,\ int)
+comment5.params=text\ player0\ place\ numItems
+comment5.target=void\ putdownItem(java.lang.String,\ Player,\ Place,\ int)
+comment6.params=itemLabel\ player0\ place\ k
+comment6.target=void\ putdown(java.lang.String,\ Player,\ Place,\ int)
+numComments=7
