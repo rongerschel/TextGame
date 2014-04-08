@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+import java.util.ArrayList;
 /**
  * Game in the text game
  *
@@ -7,10 +7,6 @@ import java.util.Scanner;
  * @version 2014-2-26
  */
 public class Game extends Parent {
-
-    public static final int ACTION_COUNT_MAX    = 40;
-    public static final int PLACE_COUNT_MAX     = 10;
-    public static final int ITEM_COUNT_MAX      = 30;
 
     //************************************************************
     //*** instance fields
